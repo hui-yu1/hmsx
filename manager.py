@@ -2,13 +2,11 @@ from application import app,manager
 from flask_script import Server
 import urls
 
-<<<<<<< HEAD
 # web服务器配置
 manager.add_command("runserver",Server(host="localhost",port=5000,use_debugger=True,use_reloader=True))
-=======
+
 # web 服务器
-manager.add_command( "runserver",Server(host="localhost",port=5000,use_debugger=True,use_reloader=True) )
->>>>>>> 6c785b6... login
+manager.add_command( "runserver",Server(host="localhost",port=5000,use_debugger=True,use_reloader=True))
 
 def main():
     manager.run()

@@ -6,7 +6,7 @@
             <h2 class="font-bold">登录图片</h2>
             <div class="row">
                 <a href="">
-                    <img src="{{ url_for('static',filename='images/p1.jpg') }}" alt="" width="400px" height="300px">
+                    <img src="{{ url_for('static',filename='images/p1.jpg') }}" alt="" width="600px" height="300px">
                 </a>
             </div>
         </div>
@@ -41,5 +41,5 @@
 {% endblock %}
 
 {% block js %}
-    <script src="{{ url_for('static',filename='js/user/login.js') }}"></script>
+    <script src="{{ buildStaticUrl('/js/user/login.js') }}"></script>
 {% endblock %}

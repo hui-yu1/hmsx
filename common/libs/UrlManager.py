@@ -16,4 +16,4 @@ class UrlManager(object):
 
     @staticmethod
     def buildImageUrl(path):
-        pass        
+        pass            
