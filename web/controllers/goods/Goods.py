@@ -1,9 +1,10 @@
 from flask import Blueprint,request,jsonify,redirect
 
-from common.libs.Helper import ops_render,getCurrentDate,iPagination
+from common.libs.Helper import ops_render,iPagenation,getCurrentDate
 from common.libs.UrlManager import UrlManager
 from common.models.goods.Goods import Goods
 from application import app,db
+from sqlalchemy import or_
 
 router_goods = Blueprint("goods_page",__name__)
 
@@ -26,7 +27,7 @@ def index():
         "page":page,
         "url":request.full_path.replace("&p={}".format(page),"")
     }
-    pages = iPagination(params)
+    pages = iPagenation(params)
     # 当前页数据开始位置  
     offset = (page-1) * 2
     # 当前页数据结束位置  
@@ -35,6 +36,7 @@ def index():
     list = query.all()[offset:limit]
 
     resp_data['list'] = list
+    resp_data['status'] = app.config['STATUS']
     resp_data['pages'] = pages
     return ops_render("goods/index.html",resp_data)
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from application import app,db
-from common.models.goods.Goods import Goods
+from common.models.goods.Goods import Good
 from common.libs.Helper import getCurrentDate
 class GoodsService():
 
@@ -10,7 +10,7 @@ class GoodsService():
         if goods_id < 1:
             return False
 
-        goods_info = Goods.query.filter_by( id = goods_id ).first()
+        goods_info = Good.query.filter_by( id = goods_id ).first()
         if not goods_info:
             return False
 
